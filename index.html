@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUNTER SLAYER</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        
+        .section-container {
+            min-height: 100vh;
+            position: relative;
+            padding-top: 80px; /* Space for fixed nav */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .nav-link {
+            color: #d1d5db;
+            padding: 0 1rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        .nav-link:hover { color: #ef4444; }
+        
+        .heading-shadow { text-shadow: 4px 4px 0px #000; }
+        
+        /* Specific Styles to match PDF Layout quirks */
+        .pdf-box-shadow { box-shadow: 0 4px 6px rgba(0,0,0,0.5); }
+        .footer-text { font-family: 'Impact', sans-serif; letter-spacing: 2px; color: #666; }
+
+        /* Page 1 Specific Grid for 3 Images */
+        .page1-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 0;
+        }
+        .page1-col {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+        .page1-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+        .page1-col::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation (Fixed Top) -->
+    <nav class="fixed top-0 w-full z-50 bg-black/95 border-b border-gray-800 h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
+            <!-- Left Menu Items -->
+            <div class="flex items-center space-x-2 md:space-x-6">
+                <a href="#page1" class="nav-link text-white">หน้าแรก</a>
+                <a href="#page2" class="nav-link">ข่าวสาร</a>
+                <a href="#page5" class="nav-link">สื่อ</a>
+                <a href="#page4" class="nav-link">download</a>
+            </div>
+            
+            <!-- Right Button -->
+            <div>
+                <a href="#" class="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded text-sm font-bold shadow-md transition">
+                    ลงทะเบียน/เข้าสู่ระบบ
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="page1" class="section-container bg-black border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 w-full py-10">
+        <!-- Main Content Overlay -->
+        <div class="relative z-10 w-full h-full flex flex-col justify-between pt-10 pb-8 px-4">
+            
+            <!-- Top / Center Title -->
+            <div class="text-center mt-10 flex-grow flex flex-col justify-center items-center">
+                <h2 class="text-3xl text-gray-400 font-bold tracking-widest mb-0 drop-shadow-md">HUNTER</h2>
+                <h1 class="text-6xl md:text-9xl font-bold text-white mb-8 heading-shadow leading-none">
+                    <span class="text-white">SLAYER</span>
+                </h1>
+
+                <!-- Button: Play Game (Only) -->
+                <button class="bg-red-600 hover:bg-red-700 text-white text-2xl font-bold py-3 px-12 rounded border-2 border-red-800 shadow-xl uppercase transform hover:scale-105 transition">
+                    <a href="#page4" class="nav-link">เล่นเกม</a>
+                </button>
+            </div>
+
+            <!-- Bottom Info Blocks & YouTube -->
+            <div class="w-full max-w-7xl mx-auto flex flex-col gap-8">
+                
+                <!-- Info Grid (Aligned with 3 Columns) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-4 text-left">
+                    
+                    <!-- Column 1 Content -->
+                    <div class="p-6 flex flex-col justify-end h-full">
+                        <div class="bg-black/70 p-4 border-l-4 border-yellow-500 backdrop-blur-sm">
+                            <h3 class="text-yellow-500 text-lg font-bold mb-2">ข่าวสารล่าสุด</h3>
+                            <img src="image/Q.png">
+                            <p class="text-sm text-gray-300">มีนักรบเดิมทางมาเกมนี้ครบเป็น จํานวน10ล้านคน</p>
+                        </div>
+                    </div>
+
+                    <!-- Column 2 Content -->
+                    <div class="p-6 flex flex-col justify-end h-full">
+                        <div class="bg-black/70 p-4 border-l-4 border-blue-500 backdrop-blur-sm">
+                            <h3 class="text-blue-500 text-lg font-bold mb-2">HUNTER</h3>
+                            <img src="image/W.png">
+                            <p class="text-sm text-gray-300">ทวีปที่3ได้ถูกค้นพบแล้วโดยนักรบ ผู้หนึ่ง</p>
+                        </div>  
+                    </div>
+
+                    <!-- Column 3 Content -->
+                    <div class="p-6 flex flex-col justify-end h-full">
+                        <div class="bg-black/70 p-4 border-l-4 border-red-500 backdrop-blur-sm">
+                            <h3 class="text-red-500 text-lg font-bold mb-2">HUNTER SAVER</h3>
+                            <img src="image/E.png">
+                            <p class="text-sm text-gray-300">บอสตัวที่ 2 ได้ ถูกจัดการลงแล้ว</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- YouTube Button (Moved to Bottom) -->
+                <div class="flex justify-center pb-4">
+                    <button class="bg-black/60 hover:bg-black/80 text-white text-2xl font-bold py-3 px-12 rounded border-2 border-white shadow-xl flex items-center justify-center transform hover:scale-105 transition">
+                       <iframe width="560" height="315" src="https://www.youtube.com/embed/fS5h1PFtDJQ?si=_IfkUHP31xYmaYb2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 2: ข่าวสาร (NEWS GRID) -->class="section-container bg-black border-t border-gray-800
+    <section id="page2" class="section-container bg-black border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 w-full py-10">
+            <!-- Header layout specific to Page 2 -->
+            <div class="flex flex-col md:flex-row items-start md:items-end mb-10 border-b border-gray-700 pb-4">
+                <div class="mr-4">
+                    <span class="text-sm text-gray-400 font-bold block">HUNTER</span>
+                    <span class="text-3xl text-red-600 font-bold">SLAYER</span>
+                </div>
+                <h2 class="text-4xl font-bold text-white md:ml-4">ข่าวสาร</h2>
+            </div>
+
+            <!-- Grid 2x3 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                <!-- Item 1 -->
+                <div class="bg-gray-900 rounded overflow-hidden pdf-box-shadow group">
+                    <div class="h-48 bg-gray-800 overflow-hidden relative">
+                         <img src="image/Q.png  " class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-white text-sm">มีนักรบเดิมทางมาเกมนี้ครบเป็น จํานวน10ล้านคน</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="bg-gray-900 rounded overflow-hidden pdf-box-shadow group">
+                    <div class="h-48 bg-gray-800 overflow-hidden relative">
+                        <img src="image/W.png" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-white text-sm">ทวีปที่3ได้ถูกค้นพบแล้วโดย นักรบผู้หนึ่ง</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="bg-gray-900 rounded overflow-hidden pdf-box-shadow group">
+                    <div class="h-48 bg-gray-800 overflow-hidden relative">
+                        <img src="image/E.png" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-white text-sm">บอสตัวที่ 2 ได้ ถูกจัดการลงแล้ว</p>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="bg-gray-900 rounded overflow-hidden pdf-box-shadow group">
+                    <div class="h-48 bg-gray-800 overflow-hidden relative">
+                        <img src="image/R.png" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-white text-sm">Guild war ชิงรางวัลท็อป 1-10ของเซิฟเวอร์</p>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="bg-gray-900 rounded overflow-hidden pdf-box-shadow group">
+                    <div class="h-48 bg-gray-800 overflow-hidden relative">
+                        <img src="image/T.png" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-white text-sm">บอสตัวแรกปรากฏตัวขึ้นแล้ว</p>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="bg-gray-900 rounded overflow-hidden pdf-box-shadow group">
+                    <div class="h-48 bg-gray-800 overflow-hidden relative">
+                        <img src="image/Y.png" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <p class="text-white text-sm">เควสลับช่วยเหลือหมู่บ้าน จากพวกมอนเตอร์</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 2 Footer -->
+            <div class="text-right pb-10">
+                <span class="footer-text text-xl">HUNTER CLEAVER</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 3: เผ่าในเกม (RACES) -->
+    <section id="page3" class="section-container bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 w-full py-10">
+            <!-- Header Center -->
+            <div class="text-center mb-12">
+
+                <div class="inline-block bg-black px-8 py-3 rounded border border-gray-700">
+                    <h2 class="text-4xl font-bold text-white">เผ่าในเกม</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- 1. Human -->
+                <div class="bg-black rounded-xl overflow-hidden border border-gray-800">
+                    <img src="image/human.png" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <p class="text-gray-300 text-sm">
+                            <strong class="text-white text-lg block mb-2">เผ่ามนุษย์ (Humans):</strong>
+                            เผ่าพันธุ์ที่ ปรับตัวได้ดี มีความมุ่งมั่นและ เชี่ยวชาญในการใช้กลยุทธ์และการ สร้างอาวุธ
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Elf -->
+                <div class="bg-black rounded-xl overflow-hidden border border-gray-800">
+                    <img src="image/elf.png" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <p class="text-gray-300 text-sm">
+                            <strong class="text-white text-lg block mb-2">เผ่าเอลฟ์ป่า (Forest Elves):</strong>
+                            สิ่ง มีชีวิตโบราณที่อาศัยอยู่ในป่าลึก มี ความว่องไว เชี่ยวชาญการยิงธนูและ เวทมนตร์ธรรมชาติ
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Orc -->
+                <div class="bg-black rounded-xl overflow-hidden border border-gray-800">
+                    <img src="image/orc.png" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <p class="text-gray-300 text-sm">
+                            <strong class="text-white text-lg block mb-2">เผ่าออร์ค (Orcs):</strong>
+                            นักรบดุร้ายและ แข็งแกร่ง ชอบการต่อสู้และมีพละ กำลังมหาศาล
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. Dwarf -->
+                <div class="bg-black rounded-xl overflow-hidden border border-gray-800">
+                    <img src="image/dwarf.png" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <p class="text-gray-300 text-sm">
+                            <strong class="text-white text-lg block mb-2">เผ่าคนแคระ (Dwarves):</strong>
+                            นักรบผู้ แข็งแกร่งและช่างฝีมือผู้ชำนาญการ ขุดเหมือง มีความทนทานและ เชี่ยวชาญการต่อสู้ระยะประชิด
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. Lizardfolk -->
+                <div class="bg-black rounded-xl overflow-hidden border border-gray-800">
+                    <img src="image/lizard.png" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <p class="text-gray-300 text-sm">
+                            <strong class="text-white text-lg block mb-2">เผ่าลิซาร์ดโฟล์ค (Lizardfolk):</strong>
+                            สิ่งมีชีวิตโบราณที่มีลักษณะคล้าย กิ้งก่า อาศัยอยู่ในป่าพรุและถ้ำ มี ความแข็งแกร่งและเชี่ยวชาญการใช้ พิษ
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+             <!-- Page 3 Footer -->
+             <div class="text-right pb-10">
+                <span class="footer-text text-xl text-red-700">HUNTER CLEAVER</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 4: DOWNLOAD -->
+    <section id="page4" class="section-container bg-black justify-center items-center">
+        <div class="w-full max-w-md px-4 text-center">
+            <!-- Icon -->
+            <div class="w-24 h-24 bg-white rounded-full mx-auto mb-8 flex items-center justify-center">
+                <i class="fas fa-mobile-alt text-5xl text-black"></i>
+            </div>
+            
+            <h2 class="text-4xl font-bold text-white mb-10">ดาวน์โหลดเกม</h2>
+
+            <!-- Buttons Stack -->
+            <div class="flex flex-col space-y-4">
+                <!-- Button 1: Checkbox style -->
+                <button class="w-full border border-gray-400 py-3 text-white hover:bg-white hover:text-black transition flex items-center justify-center gap-3">
+                    <img src="image/windows-Photoroom.png"style ="width: 50px;">
+                    <span class="font-bold tracking-widest text-lg">DOWNLOAD</span>
+                </button>
+                
+                <!-- Button 2 -->
+                <button class="w-full border border-gray-400 py-3 text-white hover:bg-white hover:text-black transition flex items-center justify-center gap-3">
+                    <img src="image/PLAYSTORE.png"style ="width: 50px;">
+                    <span class="font-bold tracking-widest text-lg">DOWNLOAD</span>
+                </button>
+
+                <!-- Button 3 -->
+                <button class="w-full border border-gray-400 py-3 text-white hover:bg-white hover:text-black transition flex items-center justify-center gap-3">
+                    <img src="image/app-store-og-Photoroom.png"style ="width: 50px;">
+                    <span class="font-bold tracking-widest text-lg">DOWNLOAD</span>
+                </button>
+            </div>
+
+            <!-- Footer Section for Page 4 -->
+            <div class="mt-16 border-t border-gray-800 pt-6">
+                <div class="flex justify-center mb-2">
+                    <div class="w-8 h-8 bg-blue-600 flex items-center justify-center text-white font-bold">f</div>
+                </div>
+                <p class="footer-text text-gray-500">HUNTER SAVER</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 5: สื่อ (MEDIA/PATCH NOTES) -->
+    <section id="page5" class="section-container bg-gray-900 border-t border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 w-full py-10">
+            <h2 class="text-4xl font-bold text-center text-white mb-8">สื่อ</h2>
+
+            <div class="bg-gray-800 border border-gray-600 rounded-lg p-8 md:p-12 shadow-2xl relative">
+                <!-- Header of Patch Note -->
+                <div class="text-center mb-8">
+                    <h3 class="text-red-600 text-3xl font-bold tracking-widest">SLAYER</h3>
+                    <h4 class="text-white text-xl font-bold mt-2">X HUNTER SLAYER X</h4>
+                    <p class="text-gray-400 text-sm mt-1">วันที่: [11/11/2568]</p>
+                </div>
+
+                <!-- Content Body -->
+                <div class="space-y-6 text-gray-300">
+                    <p class="text-center text-white italic text-lg">
+                        "การมาถึงของ Shadowfang Keep และการปรับสมดุลครั้งใหญ่! เตรียมตัวให้พร้อมสำหรับการล่าครั้งใหม่!"
+                    </p>
+
+                    <!-- Section: New Features -->
+                    <div>
+                        <h5 class="text-white font-bold text-lg mb-2">ฟีเจอร์ใหม่/เนื้อหาใหม่ (New Features/Content)</h5>
+                        <p class="text-gray-400 font-bold mb-1">[สิ่งที่เพิ่มเข้ามา]</p>
+                        <p class="mb-2">รายละเอียด: อธิบายสิ่งที่เพิ่มเข้ามาใหม่ เช่น แผนที่ ดันเจี้ยน หรือระบบใหม่</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>เพิ่มดันเจี้ยนใหม่ "Shadowfang Keep" สำหรับผู้เล่นเลเวล 60 ขึ้นไป พร้อมบอสใหม่ 3 ตัว และชุดเกราะระดับตำนานใหม่ (Legendary Set) ให้ล่า</li>
+                            <li>เพิ่มระบบ "Rune Forging" ใหม่ ให้ผู้เล่นสามารถรวม Rune ระดับต่ำเพื่อสร้าง Rune ระดับสูงขึ้นได้</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section: Balance -->
+                    <div>
+                        <h5 class="text-white font-bold text-lg mb-2">การปรับสมดุล (Balance Changes)</h5>
+                        
+                        <div class="mb-2">
+                            <span class="text-white font-bold block">เผ่า/คลาส:</span>
+                            <ul class="list-none pl-0 space-y-1">
+                                <li>เผ่ามนุษย์: เพิ่มความเสียหายพื้นฐานของอาวุธประเภทดาบมือเดียวขึ้น +5%</li>
+                                <li>เผ่าออร์ค: ลดระยะเวลาคูลดาวน์ของสกิล 'Berserker Rage' จาก 60 วินาที เป็น 45 วินาที</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <span class="text-white font-bold block">มอนสเตอร์:</span>
+                            <ul class="list-none pl-0 space-y-1">
+                                <li>Werewolf Alpha: ลดพลังชีวิต (HP) ลง 8% แต่เพิ่มความเสียหายจากการโจมตีพื้นฐานขึ้น 5%</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <span class="text-white font-bold block">ไอเทม:</span>
+                            <ul class="list-none pl-0 space-y-1">
+                                <li>Amulet of the Forest: ปรับค่า Critical Chance จาก 10% เป็น 8%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Section: Bug Fixes -->
+                    <div>
+                        <h5 class="text-white font-bold text-lg mb-2">การแก้ไขข้อผิดพลาด (Bug Fixes)</h5>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>แก้ไขปัญหาที่ผู้เล่นบางคนสามารถใช้สกิล 'Vanish' ของ Hunter ได้อย่างต่อเนื่องโดยไม่มีคูลดาวน์</li>
+                            <li>แก้ไขข้อผิดพลาดที่ทำให้บอส The Frost Giant ไม่ดรอปไอเทมเมื่อถูกสังหาร</li>
+                            <li>ปรับปรุงภาพวิชวลและแก้ไขปัญหาด้านกราฟิกในโซน 'Blasted Wasteland' ที่มีแสงสว่างจ้าเกินไป</li>
+                            <li>แก้ไขคำอธิบายสกิล 'Heal' ของ Priest ให้แสดงค่าตัวเลขที่ถูกต้อง</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section: QoL -->
+                    <div>
+                        <h5 class="text-white font-bold text-lg mb-2">+ การปรับปรุงคุณภาพชีวิต (Quality of Life)</h5>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>เพิ่มตัวกรอง (Filter) ในช่องเก็บของ (Inventory) เพื่อให้ค้นหาไอเทมตามระดับความหายาก (Rarity) ได้ง่ายขึ้น</li>
+                            <li>เพิ่มตัวเลือกให้ผู้เล่นสามารถข้ามคัต นแนะนำดันเจี้ยนได้ (หลังจากดูครั้งแรก)</li>
+                            <li>ปรับปรุงประสิทธิภาพของเซิร์ฟเวอร์เพื่อให้การเชื่อมต่อเสถียรยิ่งขึ้น</li>
+                        </ul>
+                    </div>
+
+                    <!-- Extra Text Artifact -->
+                    <div class="mt-8 pt-4 border-t border-gray-700 text-gray-500 italic text-sm">
+                        จะให้ฉันสร้าง Patch Note ฉบับร่างสำหรับ Hunter Slayer โดยใช้โครงสร้างนี้ไหมครับ?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 5 Footer -->
+            <div class="text-right pt-10">
+                <span class="footer-text text-xl">HUNTER CLEAVER</span>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
